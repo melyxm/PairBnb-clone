@@ -1,22 +1,29 @@
-<%= form_for :session, url: session_path do |form| %>
-  <div class="text-field">
-    <%= form.label :email %>
-    <%= form.text_field :email, type: 'email' %>
-  </div>
+<div class="card-login">
+  <div class="form-login">
+    <h2 class="lead"><%= t("Login") %></h2>
 
-  <div class="password-field">
-    <%= form.label :password %>
-    <%= form.password_field :password %>
-  </div>
+    <%= form_for :session, url: session_path do |form| %>
+      <div class="text-field">
+        <%= form.text_field :email, type: 'email', class: "form-control" %>
+      </div>
 
-  <div class="submit-field">
-    <%= form.submit %>
-  </div>
+      <div class="password-field">
+        <%= form.password_field :password, class: "form-control" %>
+      </div>
 
-  <div class="other-links">
-    <% if Clearance.configuration.allow_sign_up? %>
-      <%= link_to t(".sign_up"), sign_up_path %>
+      <div class="submit-field">
+        <%= form.submit "submit", class: "btn btn-default" %>
+        <%= link_to t(".forgot_password"), new_password_path %>
+      </div>
+
+      <div class="other-links">
+        <% if Clearance.configuration.allow_sign_up? %>
+          <%= link_to t(".sign_up"), sign_up_path ,class:"btn-danger btn"%>
+
+        <% end %>
+
+      </div>
     <% end %>
-    <%= link_to t(".forgot_password"), new_password_path %>
+
   </div>
-<% end %>
+</div>
