@@ -1,2 +1,4 @@
-class UsersController < ApplicationController
+class UsersController < Clearance::UsersController
+  def show
+  end
 end
