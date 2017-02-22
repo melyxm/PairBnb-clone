@@ -1,0 +1,25 @@
+<h1> USER PROFILE </h1>
+
+<%= @user.email %>
+
+<!-- <%= link_to "Sign out", sign_out_url ,method: :delete %> -->
+<h3>Name: </h3>
+<h4>Your Listings: </h4>
+<%= @listings.all %>
+<h4>Your Trips: </h4>
+
+<form action='listing' id = @listing method="post">
+  About:
+  <input type="text" name="about">
+
+  Price:
+  <input type="integer" name="price">
+
+  Bedroom:
+  <input type="integer" name="bedroom">
+
+  Bathroom:
+  <input type="integer" name="bathroom">
+
+  <input type="Submit" value="Submit">
+</forms>
