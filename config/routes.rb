@@ -5,7 +5,7 @@ Rails.application.routes.draw do
     root 'pairbnbs#home'
 
     # Other Routes
-    get 'listings', to: 'listings#index'
+    get 'profiles', to: 'profiles#index'
 
     # Clearance authentication
     get 'home/show'
