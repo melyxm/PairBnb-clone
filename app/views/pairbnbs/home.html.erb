@@ -25,34 +25,19 @@
 <!-- listing-content -->
 <div class="container">
   <div class="row">
+    <% Listing.all.each do |listing| %>
     <div class="col-md-4">
       <div class="card-img">
         <%= image_tag("gallery4.jpg", class: "img-responsive") %>
         <div class="content-wrapper">
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni, autem labore nihil quis officiis nemo ex nisi, ad sunt esse commodi necessitatibus ipsum, impedit quidem vitae neque dolore accusamus reiciendis.</p>
-          <%= link_to "Book Now", "#", class: "btn btn-default" %>
-
+          <p>$<%= listing.price %></p>
+          <p><%= listing.about %></p>
+          <%= link_to "Book Now", listing_path(listing), class: "btn btn-default" %>
         </div>
         </div>
+        <br>
     </div>
-    <div class="col-md-4">
-      <div class="card-img">
-        <%= image_tag("gallery2.jpg", class: "img-responsive") %>
-        <div class="content-wrapper">
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni, autem labore nihil quis officiis nemo ex nisi, ad sunt esse commodi necessitatibus ipsum, impedit quidem vitae neque dolore accusamus reiciendis.</p>
-          <%= link_to "Book Now", "#", class: "btn btn-default" %>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-4">
-      <div class="card-img">
-        <%= image_tag("gallery3.jpg", class: "img-responsive") %>
-        <div class="content-wrapper">
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni, autem labore nihil quis officiis nemo ex nisi, ad sunt esse commodi necessitatibus ipsum, impedit quidem vitae neque dolore accusamus reiciendis.</p>
-          <%= link_to "Book Now", "#", class: "btn btn-default" %>
-        </div>
-      </div>
-    </div>
+    <% end %>
   </div>
 
 </div>

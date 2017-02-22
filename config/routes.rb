@@ -7,6 +7,8 @@ Rails.application.routes.draw do
     # Other Routes
     get 'profiles', to: 'profiles#index'
 
+    resources :listings
+
     # Clearance authentication
     get 'home/show'
     resources :passwords, controller: 'clearance/passwords', only: [:create, :new]

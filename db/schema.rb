@@ -38,13 +38,12 @@ ActiveRecord::Schema.define(version: 20170221023238) do
 
   create_table "reservations", force: :cascade do |t|
     t.integer  "listing_id"
-    t.integer  "listing_user_id"
-    t.integer  "reservation_user_id"
+    t.integer  "user_id"
     t.integer  "check_in"
     t.integer  "check_out"
     t.integer  "no_of_guests"
-    t.datetime "created_at",          null: false
-    t.datetime "updated_at",          null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
   end
 
   create_table "users", force: :cascade do |t|

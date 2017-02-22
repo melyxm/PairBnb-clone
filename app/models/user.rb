@@ -6,7 +6,6 @@ class User < ApplicationRecord
 
 
     def self.create_with_auth_and_hash(authentication, auth_hash)
-      byebug
         user = User.create!(email: auth_hash["extra"]["raw_info"]["email"])
         user.authentications << (authentication)
         return user

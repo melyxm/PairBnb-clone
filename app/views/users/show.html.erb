@@ -1,1 +1,55 @@
-<h1>profile page</h1>
+<h1> USER PROFILE </h1>
+
+<%= @user.email %>
+
+<!-- <%= link_to "Sign out", sign_out_url ,method: :delete %> -->
+<h3>Name: </h3>
+
+<h4>Your Listings: </h4>
+
+<div class="container">
+  <div class="row">
+  <%=@user.listings.each do |listing| %>
+    <div class="col-md-4">
+      <div class="card-img">
+        <%= image_tag("gallery4.jpg", class: "img-responsive") %>
+        <div class="content-wrapper">
+          <p>$<%= listing.price %></p>
+          <p><%= listing.about %></p>
+          <p>Ratings:<%= listing.ratings %></p>
+          <p>No. Bedrooms:<%= listing.bedroom %></p>
+          <p>No. Bathrooms:<%= listing.bathroom %></p>
+          <%= link_to "Book Now", listing_path(listing), class: "btn btn-default" %>
+        </div>
+        </div>
+        <br>
+    </div>
+    <% end %>
+  </div>
+</div>
+
+
+<h4>Your Trips: </h4>
+
+<%=@user.reservations.each do |reservation| %>
+  <%=reservation.listing.user.email%>
+  <%=reservation.listing.about%>
+  <%=reservation.check_in%>
+  <%=reservation.check_out%>
+<%end%>
+
+<form action='listing' id = @listing method="post">
+  About:
+  <input type="text" name="about">
+
+  Price:
+  <input type="integer" name="price">
+
+  Bedroom:
+  <input type="integer" name="bedroom">
+
+  Bathroom:
+  <input type="integer" name="bathroom">
+
+  <input type="Submit" value="Submit">
+</forms>
