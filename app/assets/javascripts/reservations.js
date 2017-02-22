@@ -1,7 +1,16 @@
 $(document).ready(function() {
-  $('#datepicker').datepicker();
+  $('.searchCalender').datepicker();
 
   $('.searchCalender').click(function() {
-    $('#datepicker').show();
+    $('.searchCalender').show();
   });
 });
+
+
+// $(document).ready(function() {
+//   $('#datepicker').datepicker();
+//
+//   $('.datepicker').click(function() {
+//     $('#datepicker').show();
+//   });
+// });

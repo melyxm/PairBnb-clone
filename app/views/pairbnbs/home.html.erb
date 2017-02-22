@@ -15,7 +15,7 @@
       When<br>
       <%= form_for @reservation do |f| %>
       <%= f.text_field :check_in, class: "searchCalender", placeholder: "Check in", size: "28px" %><br/>
-      <%= f.submit %>
+      <%= f.submit class: "reservation-btn" %>
       <% end %>
   </div>
     <div class="searchForm-list lead searchForm-text">
@@ -43,7 +43,4 @@
     <% end %>
   </div>
 
-</div>
-
-<div id="datepicker" style="display: none;">
 </div>
