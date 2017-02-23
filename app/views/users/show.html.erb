@@ -3,12 +3,14 @@
 <%= @user.email %>
 
 <!-- <%= link_to "Sign out", sign_out_url ,method: :delete %> -->
-<h3>Name: </h3>
-
-<h4>Your Listings: </h4>
 
 <div class="container">
-  <div class="row">
+  <h3>Name</h3>
+  <h4>Your Listings</h4>
+</div>
+
+<div class="container">
+  <div class="row" style="margin-bottom: 5em;">
   <%=@user.listings.each do |listing| %>
     <div class="col-md-4">
       <div class="card-img">
@@ -31,7 +33,7 @@
 
 <h4>Your Trips: </h4>
 
-<%=@user.reservations.each do |reservation| %>
+<%@user.reservations.each do |reservation| %>
   <%=reservation.listing.user.email%>
   <%=reservation.listing.about%>
   <%=reservation.check_in%>
