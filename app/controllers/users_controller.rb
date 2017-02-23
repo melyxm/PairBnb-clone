@@ -3,4 +3,9 @@ class UsersController < Clearance::UsersController
     @user = User.find(params[:id])
     @listings = @user.listings
   end
+
+  def index
+       @user = User.order(:id).page params[:page]
+  end
+
 end

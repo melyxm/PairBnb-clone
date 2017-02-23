@@ -7,6 +7,8 @@ Rails.application.routes.draw do
     # Other Routes
     get 'profiles', to: 'profiles#index'
 
+    # refer to controller # method name
+
     resources :listings
 
     # Clearance authentication
@@ -17,6 +19,13 @@ Rails.application.routes.draw do
         resource :password,
                  controller: 'clearance/passwords',
                  only: [:create, :edit, :update]
+
+        # Pagination
+        concern :paginatable do
+            get '(page/:page)', action: :index, on: :collection, as: ''
+        end
+
+        resources :my_resources, concerns: :paginatable
     end
 
     get '/sign_in' => 'clearance/sessions#new', as: 'sign_in'
