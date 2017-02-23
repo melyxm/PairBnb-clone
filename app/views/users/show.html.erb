@@ -19,7 +19,7 @@
           <p>Ratings:<%= listing.ratings %></p>
           <p>No. Bedrooms:<%= listing.bedroom %></p>
           <p>No. Bathrooms:<%= listing.bathroom %></p>
-          <%= link_to "Book Now", listing_path(listing), class: "btn btn-default" %>
+
         </div>
         </div>
         <br>
@@ -38,7 +38,7 @@
   <%=reservation.check_out%>
 <%end%>
 
-<form action='listing' id = @listing method="post">
+<!-- <form action='/listings' id = @listing method="post">
   About:
   <input type="text" name="about">
 
@@ -52,4 +52,12 @@
   <input type="integer" name="bathroom">
 
   <input type="Submit" value="Submit">
-</forms>
+</forms> -->
+
+<%= form_for @new_listing do |f| %>
+  <%= f.label :about %>
+  <%= f.text_field :about %>
+  <%= f.label :price %>
+  <%= f.number_field :price %>
+  <%= f.submit 'Create New Listing' %>
+<% end %>
