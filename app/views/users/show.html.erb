@@ -5,8 +5,6 @@
 <!-- <%= link_to "Sign out", sign_out_url ,method: :delete %> -->
 <h3>Name: </h3>
 
-<h4>Your Listings: </h4>
-
 <div class="container">
   <div class="row">
   <%=@user.listings.each do |listing| %>
@@ -39,6 +37,13 @@
 <%end%>
 
 <!-- <form action='/listings' id = @listing method="post">
+
+<h4>Your Listings: </h4>
+<%= @listings.all %>
+<h4>Your Trips: </h4>
+
+<form action='listing' id = @listing method="post">
+
   About:
   <input type="text" name="about">
 
@@ -52,6 +57,7 @@
   <input type="integer" name="bathroom">
 
   <input type="Submit" value="Submit">
+
 </forms> -->
 
 <%= form_for @new_listing do |f| %>
@@ -61,3 +67,4 @@
   <%= f.number_field :price %>
   <%= f.submit 'Create New Listing' %>
 <% end %>
+
