@@ -11,6 +11,8 @@ body {
   height: 300px;
 }
 
+// Navbar
+
 .navbar {
   background-color: #fff;
   width: 100%;
@@ -19,13 +21,17 @@ body {
   box-shadow: 0px 2px 3px #ceccd1;
 }
 
+.nav li:hover {
+  background-color: #f8502f;
+}
+
+
 // SearchForm Field
 
 .SearchForm {
   width: 801px;
   height: 120px;
   background-color: #fff;
-
   margin: 0 auto;
   position: relative;
   bottom: 4em;
@@ -50,8 +56,104 @@ body {
   font-size: 17.2px;
 }
 
+// Form-login
+
 .card-login {
-  background-color: red;
+  background-image: url('login_image.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
   width: 700px;
   height: 400px;
+  margin: auto;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.20);
+}
+
+.form-login {
+  background-color: #fff;
+  border: 1px solid #ddd7d7;
+  width: 350px;
+  height: 100%;
+  padding: 40px 40px 0 40px;
+  margin-top: 7em;
+
+}
+
+.text-field input {
+  width: 100%;
+  margin: 0 auto;
+  border: 1px solid #ddd7d7;
+}
+
+
+.password-field input {
+  width: 100%;
+  margin-top: 15px;
+  border: 1px solid #ddd7d7;
+}
+
+.submit-field input {
+  width: 50%;
+  margin-top: 20px;
+}
+
+.submit-field a {
+  float: right;
+  margin-top: 28px;
+  margin-right: 6px;
+}
+
+.btn-danger {
+  background: #f8502f;
+  margin-top: 10px;
+  width: 100%;
+  height:37px;
+  border: 0;
+}
+
+.form-login h2 {
+  margin-bottom: 10px;
+}
+
+// Facebook Button
+
+.btn-primary {
+  background-color: #3b5998;
+  font-weight: 300;
+  width: 100%;
+  height: auto;
+  margin-bottom: 15px;
+}
+
+// Listing
+.card-img {
+  box-sizing: border-box;
+  background-clip: padding-box;
+  border-radius: 2px;
+  box-shadow: 0 2px 3px rgba(0,0,0,0.12), 0 2px 3px rgba(0,0,0,0.24);
+}
+
+.row {
+  position: relative;
+  bottom: 2em;
+}
+
+.content-wrapper {
+  padding: 10px;
+}
+
+.content-wrapper a {
+  background-color: #f8502f;
+  color: #fff;
+  margin-left: 250px;
+}
+
+.card-img img {
+  width: 360px;
+  height: 240px;
+  padding-bottom: 10px;
+}
+
+// datepicker
+.reservation-btn {
+  display: none;
 }

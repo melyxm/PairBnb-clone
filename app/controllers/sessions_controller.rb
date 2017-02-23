@@ -12,7 +12,6 @@ class SessionsController < Clearance::SessionsController
             @next = root_url
             @notice = 'User created - confirm or edit details...'
         end
-        p user
         sign_in(user)
         redirect_to @next, notice: @notice
   end

@@ -13,7 +13,10 @@
     </div>
     <div class="searchForm-list lead searchForm-text">
       When<br>
-    <input type="text" placeholder="Check In, Check Out" size="28px">
+      <%= form_for @reservation do |f| %>
+      <%= f.text_field :check_in, class: "searchCalender", placeholder: "Check in", size: "28px" %><br/>
+      <%= f.submit class: "reservation-btn" %>
+      <% end %>
   </div>
     <div class="searchForm-list lead searchForm-text">
       Guest<br>
@@ -22,5 +25,22 @@
   </div>
 </div>
 
+<!-- listing-content -->
+<div class="container">
+  <div class="row">
+    <% Listing.all.each do |listing| %>
+    <div class="col-md-4">
+      <div class="card-img">
+        <%= image_tag("gallery4.jpg", class: "img-responsive") %>
+        <div class="content-wrapper">
+          <p>$<%= listing.price %></p>
+          <p><%= listing.about %></p>
+          <%= link_to "Book Now", listing_path(listing), class: "btn btn-default" %>
+        </div>
+        </div>
+        <br>
+    </div>
+    <% end %>
+  </div>
 
-<!-- modal-content -->
+</div>

@@ -7,7 +7,6 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <%= stylesheet_link_tag "app.scss" %>
   </head>
 
   <body>
@@ -30,8 +29,8 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
-                    <li class="active">
-                      <%= link_to 'Home', "#" %>
+                    <li>
+                      <%= link_to 'Home', root_path %>
                     </li>
                     <li>
                       <%= link_to 'Help', "#" %>
@@ -57,6 +56,11 @@
         </div>
         <!-- /.container-fluid -->
     </nav>
+
+    <% flash.each do |name, msg| %>
+      <%= content_tag :div, msg, class: "alert alert-#{name}" %>
+    <% end %>
+
     <%= yield %>
   </body>
 </html>
