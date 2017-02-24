@@ -36,6 +36,9 @@ gem 'faker'
 # Use will_paginate
 gem 'will_paginate'
 gem 'will_paginate-bootstrap', '~> 1.0', '>= 1.0.1'
+# Use carrierwave
+gem 'carrierwave', '~> 0.10.0'
+gem 'mini_magick'
 # Use Awesome Print
 gem 'awesome_print'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks

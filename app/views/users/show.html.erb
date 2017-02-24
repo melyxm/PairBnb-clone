@@ -1,64 +1,29 @@
 <div class="profile-container">
     <h1 class="lead profile-font">USER PROFILE</h1>
+
+
+
+
+
     <%= @user.email %>
 
-<div class="listing">
-  <h4 class="lead" >Your Trips</h4>
-    <%= form_for @new_listing do |f| %>
-    <div class="col-md-4">
-      <%= f.label :about, class: 'lead', style: 'font-size:15px; margin-bottom: 7px;' %>
-      <%= f.text_field :about, class: 'form-control' %>
-    </div>
-    <div class="col-md-4">
-      <%= f.label :address, class: 'lead', style: 'font-size:15px; margin-bottom: 7px;' %>
-      <%= f.text_field :address, class: 'form-control' %>
-    </div>
-    <div class="col-md-4">
-      <%= f.label :ratings, class: 'lead', style: 'font-size:15px; margin-bottom: 7px;' %>
-      <%= f.number_field :ratings, class: 'form-control' %>
-    </div>
-    <div class="col-md-4">
-      <%= f.label :bedroom, class: 'lead', style: 'font-size:15px;margin-bottom: 7px; margin-top: 7px'%>
-      <%= f.number_field :bedroom, class: 'form-control' %>
-    </div>
-    <div class="col-md-4">
-      <%= f.label :roomtype, class: 'lead', style: 'font-size:15px;margin-bottom: 7px; margin-top: 7px'%>
-      <%= f.select :roomtype, Listing.roomtypes, {}, { class: 'form-control' } %>
-    </div>
-    <div class="col-md-4">
-    <%= f.label :bathroom, class: 'lead', style:  'font-size:15px;margin-bottom: 7px; margin-top: 7px'%>
-    <%= f.number_field :bathroom, class: 'form-control' %>
-    </div>
-    <div class="col-md-4">
-      <%= f.label :price, class: 'lead', style: 'font-size:15px;margin-bottom: 7px; margin-top: 7px' %>
-      <%= f.number_field :price, class: 'form-control'%>
-      <br>
-      <%= f.submit 'Create New Listing', class: 'btn btn-default'%>
-      <% end %>
-    </div>
-</div>
-</div>
-<div class="your-listing">
-  <h4 class="lead">Your Listings</h4>
-        <% @user.listings.each do |listing| %>
+    <div class="your-listing">
+        <h4 class="lead">Your Listings</h4>
+        <% @listings.image.each do |list| %>
         <div class="col-md-4">
             <div class="card-img">
                 <%= image_tag("gallery4.jpg", class: "img-responsive", style: "margin-top: 20px;") %>
                 <div class="content-wrapper">
-                    <p>$<%= listing.price %></p>
-                    <p><%= listing.about %></p>
-                    <p>Ratings:<%= listing.ratings %></p>
-                    <p>No. Bedrooms:<%= listing.bedroom %></p>
-                    <p>No. Bathrooms<%= listing.bathroom %></p>
+                    <p>$<%= list.price %></p>
+                    <p><%= list.about %></p>
+                    <p>Ratings:<%= list.ratings %></p>
+                    <p>No. Bedrooms:<%= list.bedroom %></p>
+                    <p>No. Bathrooms<%= list.bathroom %></p>
                 </div>
             </div>
         </div>
         <% end %>
-</div>
-
-
-
-
+    </div>
 
 
 <% @user.reservations.each do |reservation| %>

@@ -1,11 +1,11 @@
 class ListingsController < ApplicationController
   def index
+    @listing = Listing.new
     @listings = Listing.all.order('created_at DESC').paginate(page: params[:page], per_page: 10)
-    
   end
 
   def new
-    @listing = Listing.new
+
   end
 
   def create
@@ -36,7 +36,8 @@ class ListingsController < ApplicationController
     redirect_to listing_path(@listing)
   end
 
+private
   def listing_params
-    params.require(:listing).permit(:user_id, :price, :ratings, :about, :bathroom, :bedroom, :address, :roomtype)
+    params.require(:listing).permit(:user_id, :price, :ratings, :about, :bathroom, :bedroom, :address, :roomtype, :image)
   end
 end

@@ -15,7 +15,7 @@ Rails.application.routes.draw do
     get 'home/show'
     resources :passwords, controller: 'clearance/passwords', only: [:create, :new]
     resource :session, controller: 'clearance/sessions', only: [:create]
-    resources :users, only: [:create, :show] do
+    resources :users, controller: 'users', only: [:create, :show] do
         resource :password,
                  controller: 'clearance/passwords',
                  only: [:create, :edit, :update]
