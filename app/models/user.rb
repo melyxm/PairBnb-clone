@@ -3,7 +3,6 @@ class User < ApplicationRecord
   has_many :listings
   has_many :reservations
   has_many :authentications, :dependent => :destroy
-  paginates_per 50
 
 
     def self.create_with_auth_and_hash(authentication, auth_hash)

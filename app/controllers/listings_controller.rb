@@ -1,6 +1,7 @@
 class ListingsController < ApplicationController
   def index
-
+    @listings = Listing.all.order('created_at DESC').paginate(page: params[:page], per_page: 10)
+    
   end
 
   def new
@@ -8,6 +9,7 @@ class ListingsController < ApplicationController
   end
 
   def create
+    # byebug
     @listing = Listing.new(listing_params)
     @listing.user_id = current_user.id
 
@@ -28,13 +30,13 @@ class ListingsController < ApplicationController
     @listing = Listing.find(params[:id])
   end
 
-  def udpate
+  def update
     @listing = Listing.find(params[:id])
     @listing.update(listing_params)
     redirect_to listing_path(@listing)
   end
 
   def listing_params
-    params.require(:listing).permit(:user_id, :price)
+    params.require(:listing).permit(:user_id, :price, :ratings, :about, :bathroom, :bedroom, :address, :roomtype)
   end
 end

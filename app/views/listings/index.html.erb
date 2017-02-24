@@ -1,0 +1,17 @@
+
+<div class="listing-wrap">
+<h1>Listing</h1>
+  <% @listings.each do |l| %>
+  <p>Id: <%= l.id %></p>
+  <p>Ratings: <%= l.ratings %></p>
+  <p>About: <%= l.about %></p>
+  <p>Address: <%= l.address %></p>
+  <p>Bedroom: <%= l.bedroom %></p>
+  <p>Bathroom: <%= l.bathroom %></p>
+  <p>Price: <%= l.price %></p>
+  <hr>
+  <% end %>
+</div>
+
+
+<%= will_paginate @listings, renderer: BootstrapPagination::Rails, previous_label: "Older", next_label: "Newer", inner_window: 1, outer_window: 0 %>
