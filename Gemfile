@@ -37,7 +37,7 @@ gem 'faker'
 gem 'will_paginate'
 gem 'will_paginate-bootstrap', '~> 1.0', '>= 1.0.1'
 # Use carrierwave
-gem 'carrierwave', '~> 0.10.0'
+gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
 gem 'mini_magick'
 # Use Awesome Print
 gem 'awesome_print'

@@ -7,6 +7,10 @@ class CreateListings < ActiveRecord::Migration[5.0]
       t.string :about
       t.integer :bedroom
       t.integer :bathroom
+      t.json    :images
+      t.integer :roomtype, default: 0
+      t.string :address
+      t.string :title
 
       t.timestamps
     end

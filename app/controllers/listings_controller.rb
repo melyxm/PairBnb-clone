@@ -4,15 +4,10 @@ class ListingsController < ApplicationController
     @listings = Listing.all.order('created_at DESC').paginate(page: params[:page], per_page: 10)
   end
 
-  def new
-
-  end
-
   def create
-    # byebug
+    byebug
     @listing = Listing.new(listing_params)
     @listing.user_id = current_user.id
-
     if @listing.save
       flash[:success] = "Listing is successfully created!"
       redirect_to listing_path(@listing)
@@ -38,6 +33,6 @@ class ListingsController < ApplicationController
 
 private
   def listing_params
-    params.require(:listing).permit(:user_id, :price, :ratings, :about, :bathroom, :bedroom, :address, :roomtype, :image)
+    params.require(:listing).permit(:title, :price, :ratings, :about, :bathroom, :bedroom, :address, :roomtype, images: [])
   end
 end

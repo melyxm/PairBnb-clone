@@ -1,15 +1,11 @@
 <div class="profile-container">
     <h1 class="lead profile-font">USER PROFILE</h1>
 
-
-
-
-
     <%= @user.email %>
 
     <div class="your-listing">
         <h4 class="lead">Your Listings</h4>
-        <% @listings.image.each do |list| %>
+        <% @user.listings do |list| %>
         <div class="col-md-4">
             <div class="card-img">
                 <%= image_tag("gallery4.jpg", class: "img-responsive", style: "margin-top: 20px;") %>
