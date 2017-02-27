@@ -10,6 +10,7 @@ Rails.application.routes.draw do
     # refer to controller # method name
 
     resources :listings
+    resources :reservations
 
     # Clearance authentication
     get 'home/show'
@@ -17,7 +18,7 @@ Rails.application.routes.draw do
     resource :session, controller: 'sessions', only: [:create]
 
 
-    resources :users, only: [:create, :show] do
+    resources :users, only: [:create, :show, :edit, :update] do
         resource :password,
                  controller: 'clearance/passwords',
                  only: [:create, :edit, :update]

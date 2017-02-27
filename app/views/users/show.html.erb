@@ -1,25 +1,49 @@
-<div class="profile-container">
-    <h1 class="lead profile-font">USER PROFILE</h1>
+<div class="jumbotron">
+    <div class="container">
+      <h1 style="margin-left: 370px;">Profile for <%= @user.user_name %></h1>
 
-    <%= @user.email %>
+      <p style="margin-left: 370px;"><%= link_to "Edit", edit_user_path(@user) %></p>
+    </div>
+</div>
+
+<div class="profile-container">
+  <div class="container" style="border: 1px solid #ccc;">
+    <div class="img-card">
+      <%= image_tag @user.image.url(:thumb) if @user.image? %>
+        <h2 class="lead profile-font">
+          <%= form_for user_path, :html => { :multipart => true } do |f| %>
+          <%= f.file_field :image, class: 'form-control'%>
+          <%= f.submit 'upload', class: 'btn btn-default'%>
+          <% end %>
+        </h2>
+        <div class="profile-content">
+          <h2 class="lead profile-font"><%= @user.email %></h2>
+            <p class="lead"><strong>about</strong></p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam libero quae veniam. Natus maxime explicabo praesentium, asperiores deleniti nostrum dolore. Nesciunt suscipit odio, doloremque incidunt consectetur reiciendis obcaecati. Incidunt, rem?</p>
+        </div>
+    </div>
+    </div>
+
 
     <div class="your-listing">
-        <h4 class="lead">Your Listings</h4>
-        <% @user.listings do |list| %>
-        <div class="col-md-4">
-            <div class="card-img">
-                <%= image_tag("gallery4.jpg", class: "img-responsive", style: "margin-top: 20px;") %>
-                <div class="content-wrapper">
-                    <p>$<%= list.price %></p>
-                    <p><%= list.about %></p>
-                    <p>Ratings:<%= list.ratings %></p>
-                    <p>No. Bedrooms:<%= list.bedroom %></p>
-                    <p>No. Bathrooms<%= list.bathroom %></p>
-                </div>
-            </div>
+      <h4 class="lead">Favourite Listing</h4>
+      <% @user.listings do |list| %>
+      <div class="col-md-4">
+        <div class="card-img">
+          <%= image_tag("gallery4.jpg", class: "img-responsive", style: "margin-top: 20px;") %>
+          <div class="content-wrapper">
+            <p>$<%= list.price %></p>
+            <p><%= list.about %></p>
+            <p>Ratings:<%= list.ratings %></p>
+            <p>No. Bedrooms:<%= list.bedroom %></p>
+            <p>No. Bathrooms<%= list.bathroom %></p>
+          </div>
         </div>
-        <% end %>
+      </div>
+      <% end %>
     </div>
+  </div>
+</div>
 
 
 <% @user.reservations.each do |reservation| %>

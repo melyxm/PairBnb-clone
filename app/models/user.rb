@@ -1,10 +1,11 @@
 class User < ApplicationRecord
-  mount_uploader :image, ImageUploader
   include Clearance::User
   has_many :listings
   has_many :reservations
   has_many :authentications, :dependent => :destroy
+  validates :user_name, presence: true
 
+  mount_uploader :image, ImageUploader
 
 
 

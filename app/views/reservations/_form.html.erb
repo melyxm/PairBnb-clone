@@ -1,0 +1,15 @@
+<%= form_for @reservation do |f| %>
+<div>
+  <%= f.label :no_of_guests %>
+  <%= f.number_field :no_of_guests %>
+</div>
+<div>
+  <%= f.label :check_in %>
+  <%= f.date_field :check_in %>
+</div>
+<div>
+  <%= f.label :check_out %>
+  <%= f.date_field :check_out %>
+</div>
+<%= f.submit "Reserve" %>
+<% end %>

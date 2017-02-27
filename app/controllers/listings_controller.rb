@@ -1,16 +1,19 @@
 class ListingsController < ApplicationController
   def index
-    @listing = Listing.new
     @listings = Listing.all.order('created_at DESC').paginate(page: params[:page], per_page: 10)
   end
 
+  def new
+    @listing = Listing.new
+    @listings = current_user.listings
+  end
+
   def create
-    byebug
-    @listing = Listing.new(listing_params)
-    @listing.user_id = current_user.id
+    @listing = current_user.listings.new(listing_params)
     if @listing.save
       flash[:success] = "Listing is successfully created!"
-      redirect_to listing_path(@listing)
+      @render_new_listing = " render \"_latestlist\" "
+      redirect_to new_listing_path
     else
       flash[:danger] = @listing.errors.full_messages.join(', ')
       render 'new'
@@ -18,7 +21,8 @@ class ListingsController < ApplicationController
   end
 
   def show
-    @listing = Listing.find(params[:id])
+    @listings = Listing.find(params[:id])
+    # @reservation = @listing.reservations.new
   end
 
   def edit
@@ -33,6 +37,6 @@ class ListingsController < ApplicationController
 
 private
   def listing_params
-    params.require(:listing).permit(:title, :price, :ratings, :about, :bathroom, :bedroom, :address, :roomtype, images: [])
+    params.require(:listing).permit(:title, :price, :ratings, :about, :bathroom, :bedroom, :address, :roomtype, {images: []})
   end
 end

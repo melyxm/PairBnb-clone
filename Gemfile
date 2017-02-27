@@ -41,6 +41,9 @@ gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
 gem 'mini_magick'
 # Use Awesome Print
 gem 'awesome_print'
+# Fog gem for Cloud Image Storage
+gem 'fog', require: 'fog/aws'
+
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder

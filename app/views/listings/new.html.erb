@@ -1,1 +1,23 @@
+<%= form_for @listing, :html => { :multipart => true } do |f| %>
+<%= render partial: '/listings/form', locals: {f: f} %>
+<% end %>
 
+<div class="newlist-container">
+  <div class="row">
+    <div class="col-md-4">
+      <div class="card-img">
+    <% @listings.each do |listing| %>
+        <%= image_tag("gallery4.jpg", class: "img-responsive") %>
+        <div class="content-wrapper">
+          <h1>username <%= listing.username %><h1>
+          <h2>user_id: <%= listing.user_id %></h2>
+          <p>price: <%= listing.price %></p>
+          <p>No. Bedrooms:<%= listing.bedroom %></p>
+          <p>No. Bathrooms:<%= listing.bathroom %></p>
+        </div>
+        </div>
+        <br>
+    </div>
+    <% end %>
+  </div>
+</div>

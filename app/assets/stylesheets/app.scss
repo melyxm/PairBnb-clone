@@ -159,25 +159,31 @@ body {
 }
 
 // listing
-
-
-.profile-font {
-  font-size: 30px;
-  font-weight: 400;
-}
-
-.listing-wrap {
-  width: 600px;
+.listing-form {
+  width: 1000px;
+  margin-top: 50px;
   margin-left: auto;
   margin-right: auto;
+}
+
+.newlist-container {
+  width: 900px;
+  margin-right: auto;
+  margin-left: auto;
 }
 
 // profile
+.profile-font {
+  font-size: 20px;
+  font-weight: 400;
+}
 
 .profile-container {
-  width: 1000px;
+  width: 100%;;
+  height: auto;
   margin-left: auto;
   margin-right: auto;
+  border: 1px solid #ccc;
 }
 
 .your-listing {
@@ -186,4 +192,38 @@ body {
   margin-right: auto;
   margin-top: 100px;
   overflow: hidden;
+}
+
+.image-div {
+  width:300px;
+}
+
+.profile-content {
+  width:300px;
+  margin-left: 30px;
+  margin-right: auto;
+}
+
+.profile-content p {
+  width: 250px;
+}
+
+.img-card {
+  position: relative;
+  bottom: 20em;
+  width: 300px;
+  margin-left: 40px;
+  margin-right: auto;
+  padding-bottom: 20px;
+  box-shadow: 0 2px 3px rgba(0,0,0,0.12), 0 2px 3px rgba(0,0,0,0.24);
+}
+
+.content-card{
+  position: relative;
+  bottom: 47em;
+  right: 2em;
+  width: 730px;
+  float: right;
+  background-color: red;
+  border: 1px solid #ccc;
 }

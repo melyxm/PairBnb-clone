@@ -1,25 +1,8 @@
-
-
-<div class="container">
-  <h1> Listing </h1>
-  <hr>
-  <div class="row">
-    <div class="col-md-4" style="margin-top: 50px">
-      <div class="card-img">
-        <%= image_tag("gallery4.jpg", class: "img-responsive") %>
-        <div class="content-wrapper">
-          <h1>user_id: <%= @listing.user_id %></h1>
-          <h1>price: <%= @listing.price %></h1>
-          <p>No. Bedrooms:<%= @listing.bedroom %></p>
-          <p>No. Bathrooms:<%= @listing.bathroom %></p>
-        </div>
-        </div>
-        <br>
-    </div>
-  </div>
+<h1>Title <%= @listings.title %></h1>
+<div>
+   Posted By: <%= @listings.user.user_name %>
 </div>
-
-
-<!-- <%= link_to 'My Profile', user_path(current_user) %>
-<br> -->
-<!-- <%= link_to "Sign out", sign_out_url ,method: :delete %> -->
+<p>Description: <%= @listings.about %></p>
+<p>No of Guest: <%= @listings.no_of_guests %></p>
+<p>Price: <%= @listings.price %></p>
+<%= link_to "Book Now", new_reservation_path, class: "btn btn-default" %>
