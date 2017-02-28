@@ -1,13 +1,19 @@
 class ReservationsController < ApplicationController
-  def create
-
-  end
 
   def index
     @reservation = Reservation.find_by(user_id: current_user.id)
   end
 
+  def create
+    listing = Listing.find_by(params[:id])
+    @reservation = Reservation.new
+    @reservation.user_id = current_user.id
+    @reservation.listing_id
+  end
+
+
   def show
+
   end
 
   def new
@@ -20,6 +26,11 @@ class ReservationsController < ApplicationController
 
   def destroy
 
+  end
+
+private
+  def reservation_params
+    params.require(:reservations).permit(:no_of_guests, :check_in, :check_out)
   end
 
 end

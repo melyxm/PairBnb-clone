@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  require 'carrierwave/orm/activerecord'
+
   include Clearance::User
   has_many :listings
   has_many :reservations

@@ -8,9 +8,9 @@ Rails.application.routes.draw do
     get 'profiles', to: 'profiles#index'
 
     # refer to controller # method name
-
-    resources :listings
     resources :reservations
+    resources :listing
+
 
     # Clearance authentication
     get 'home/show'
@@ -34,8 +34,6 @@ Rails.application.routes.draw do
     get '/sign_in' => 'clearance/sessions#new', as: 'sign_in'
     delete '/sign_out' => 'clearance/sessions#destroy', as: 'sign_out'
     get '/sign_up' => 'clearance/users#new', as: 'sign_up'
-    # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-    resources :reservations
     # Facebook authentication
     get '/auth/:provider/callback' => 'sessions#create_from_omniauth'
 end

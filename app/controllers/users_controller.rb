@@ -1,3 +1,4 @@
+
 class UsersController < Clearance::UsersController
   before_action :require_login, only: [:edit, :update]
   before_action :check_authorization, only: [:edit, :update]
@@ -18,7 +19,6 @@ class UsersController < Clearance::UsersController
   end
 
   def update
-    byebug
     if @user.update(user_params)
       redirect_to @user
     else
