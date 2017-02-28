@@ -28,13 +28,16 @@
 <!-- listing-content -->
 <div class="container">
   <div class="row">
-    <% Listing.all.each do |listing| %>
+    <% @listings.each do |listing| %>
     <div class="col-md-4">
       <div class="card-img">
         <%= image_tag("gallery4.jpg", class: "img-responsive") %>
         <div class="content-wrapper">
+          <p><strong><%= listing.title %></strong></p>
+          <p>address:<%= listing.address %></p>
+          <p style="float: left;">rating:<%= listing.ratings %></p>
+          <p style="text-align: right">No of guest:<%= listing.no_of_guests %></p>
           <p>$<%= listing.price %></p>
-          <p><%= listing.about %></p>
           <%= link_to "View", listing_path(listing), class: "btn btn-default" %>
         </div>
         </div>
@@ -44,4 +47,4 @@
   </div>
 </div>
 
-<%= will_paginate @listings, renderer: BootstrapPagination::Rails, previous_label: "Older", next_label: "Newer", inner_window: 1, outer_window: 0 %>
+<div class="pagination"><%= will_paginate @listings, renderer: BootstrapPagination::Rails, previous_label: "Older", next_label: "Newer", inner_window: 1, outer_window: 0 %></div>

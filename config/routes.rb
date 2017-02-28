@@ -9,7 +9,7 @@ Rails.application.routes.draw do
 
     # refer to controller # method name
     resources :reservations
-    resources :listing
+    resources :listings
 
 
     # Clearance authentication

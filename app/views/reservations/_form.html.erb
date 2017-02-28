@@ -1,5 +1,9 @@
 <%= form_for @reservation do |f| %>
 <div>
+  <%= f.label :rooms %>
+  <%= f.number_field :rooms %>
+</div>
+<div>
   <%= f.label :no_of_guests %>
   <%= f.number_field :no_of_guests %>
 </div>

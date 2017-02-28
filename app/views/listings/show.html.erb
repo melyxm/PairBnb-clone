@@ -1,9 +1,20 @@
-<h1>Title <%= @listings.title %></h1>
-<div>
-   Posted By: <%= @listings.user.user_name %>
+<div class="img-wrapper">
+<% @listings.images.each do |img| %>
+      <%= image_tag img %>
+  <% end %>
 </div>
-<p>Description: <%= @listings.about %></p>
-<p>No of Guest: <%= @listings.no_of_guests %></p>
-<p>Price: <%= @listings.price %></p>
 
-<%= link_to "Book Now", new_reservation_path, class: "btn btn-default" %>
+<div class="card-img2">
+  <div class="card-content2">
+    <h1>Title <%= @listings.title %></h1>
+    <div>
+       Posted By: <%= @listings.user.user_name %>
+    </div>
+    <p>Description: <%= @listings.about %></p>
+    <p>No of Guest: <%= @listings.no_of_guests %></p>
+    <p>Price: <%= @listings.price %></p>
+    <div class="booknw">
+        <%= link_to "Book Now", new_reservation_path, class: "btn btn-primary booknow", style: "text-transform:uppercase; width: 100%;" %>
+    </div>
+  </div>
+</div>

@@ -1,6 +1,6 @@
 <div class="listing-form">
   <div class="row">
-    <h4 class="lead">Your Trips</h4>
+    <h4 class="lead">Your Listings</h4>
     <div class="col-md-4">
       <%= f.label :title, class: 'lead', style: 'font-size:15px; margin-bottom: 7px;' %>
       <%= f.text_field :title, class: 'form-control' %>
@@ -10,8 +10,12 @@
       <%= f.text_field :about, class: 'form-control' %>
     </div>
     <div class="col-md-4">
-      <%= f.label :address, class: 'lead', style: 'font-size:15px; margin-bottom: 7px;' %>
-      <%= f.text_field :address, class: 'form-control' %>
+      <%= f.label :about, class: 'lead', style: 'font-size:15px; margin-bottom: 7px;' %>
+      <%= f.text_field :about, class: 'form-control' %>
+    </div>
+    <div class="col-md-4">
+      <%= f.label :no_of_guests, class: 'lead', style: 'font-size:15px; margin-bottom: 7px;' %>
+      <%= f.text_field :no_of_guests, class: 'form-control' %>
     </div>
     <div class="col-md-4">
       <%= f.label :bedroom, class: 'lead', style: 'font-size:15px;margin-bottom: 7px; margin-top: 7px'%>

@@ -1,6 +1,6 @@
 class ListingsController < ApplicationController
   def index
-    @listings = Listing.all.order('created_at DESC').paginate(page: params[:page], per_page: 10)
+    @listings = Listing.all.order('created_at ASC').paginate(page: params[:page], per_page: 10)
   end
 
   def new
@@ -21,7 +21,7 @@ class ListingsController < ApplicationController
   end
 
   def show
-    @listing = Listing.find(params[:id])
+    @listings = Listing.find(params[:id])
     # @reservation = @listing.reservations.ne
   end
 

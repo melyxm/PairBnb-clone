@@ -17,7 +17,7 @@ class ReservationsController < ApplicationController
   end
 
   def new
-
+    @reservation = Reservation.new
   end
 
   def update
@@ -30,7 +30,7 @@ class ReservationsController < ApplicationController
 
 private
   def reservation_params
-    params.require(:reservations).permit(:no_of_guests, :check_in, :check_out)
+    params.require(:reservations).permit(:rooms,:no_of_guests, :check_in, :check_out)
   end
 
 end

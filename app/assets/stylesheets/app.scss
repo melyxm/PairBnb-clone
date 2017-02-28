@@ -142,9 +142,18 @@ body {
 }
 
 .content-wrapper a {
-  background-color: #f8502f;
+  background-color: #38b;
   color: #fff;
-  margin-left: 250px;
+  border: 0;
+  margin-left: 285px;
+}
+
+.content-wrapper p:first-of-type {
+  text-transform: uppercase;
+}
+
+.pagination {
+  margin-left:260px;
 }
 
 .card-img img {
