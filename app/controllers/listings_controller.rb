@@ -5,7 +5,7 @@ class ListingsController < ApplicationController
 
   def new
     @listing = Listing.new
-    @listings = current_user.listings
+    @listings = Listing.all
   end
 
   def create

@@ -6,6 +6,7 @@
   <div class="row">
     <div class="col-md-4">
       <div class="card-img">
+        <% if @listings != nil %>
     <% @listings.each do |listing| %>
         <%= image_tag("gallery4.jpg", class: "img-responsive") %>
         <div class="content-wrapper">
@@ -17,7 +18,14 @@
         </div>
         </div>
         <br>
+        Amenities you can add:<br>
+    <% hidden_field_tag "listings[tag_ids][]", nil %>
+    <% Tag.all.each do |t| %>
+      <%= check_box_tag "listings[tag_ids][]", t.id, @listing.tag_ids.include?(t.id), id: dom_id(t) %>
+      <%= label_tag dom_id(t), t.content %><br>
+    <% end %>  
     </div>
     <% end %>
   </div>
 </div>
+<% end %>

@@ -2,7 +2,7 @@
 class UsersController < Clearance::UsersController
   before_action :require_login, only: [:edit, :update]
   before_action :check_authorization, only: [:edit, :update]
-  before_action :set_user
+  before_action :set_user, only: [:edit, :update]
 
   def show
     @user = User.find(params[:id])
@@ -10,8 +10,12 @@ class UsersController < Clearance::UsersController
 
   def create
     @user = User.new(user_params)
-    @user.save
-    redirect_to root_url
+      if @user.save
+        UserNotifierMailer.send_signup_email(@user).deliver
+        redirect_to(@user, :notice => 'User created')
+      else
+        redirect_to root_url
+      end
   end
 
   def edit
@@ -43,5 +47,4 @@ class UsersController < Clearance::UsersController
   def user_params
     params[:user].permit(:user_name, :full_name, :email, :password, :image)
   end
-
 end

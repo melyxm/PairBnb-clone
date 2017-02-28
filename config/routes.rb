@@ -10,8 +10,7 @@ Rails.application.routes.draw do
     # refer to controller # method name
     resources :reservations
     resources :listings
-
-
+    resources :tags
     # Clearance authentication
     get 'home/show'
     resources :passwords, controller: 'clearance/passwords', only: [:create, :new]
