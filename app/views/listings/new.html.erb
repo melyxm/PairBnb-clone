@@ -22,8 +22,8 @@
     <% hidden_field_tag "listings[tag_ids][]", nil %>
     <% Tag.all.each do |t| %>
       <%= check_box_tag "listings[tag_ids][]", t.id, @listing.tag_ids.include?(t.id), id: dom_id(t) %>
-      <%= label_tag dom_id(t), t.content %><br>
-    <% end %>  
+      <%= label_tag dom_id(t), t.name %><br>
+    <% end %>
     </div>
     <% end %>
   </div>
