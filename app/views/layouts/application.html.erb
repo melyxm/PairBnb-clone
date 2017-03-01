@@ -36,7 +36,7 @@
                       <%= link_to 'My Listing', new_listing_path %>
                     </li>
                     <li>
-                      <%= link_to 'My Booking', reservations_path %>
+                      <%= link_to 'My Booking', user_reservations_path(current_user) %>
                     </li>
                     <% if signed_out? %>
                     <li>

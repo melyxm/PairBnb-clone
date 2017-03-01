@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'payment/new'
+
+    post 'payment/checkout'
+
     get 'name/sessions'
 
     # Main Routes # get '/'
@@ -8,8 +12,11 @@ Rails.application.routes.draw do
     get 'profiles', to: 'profiles#index'
 
     # refer to controller # method name
-    resources :reservations
-    resources :listings
+
+    resources :listings do
+      resources :reservations, only: [:create, :new]
+    end
+    resources :reservations, only: [:destroy]
     resources :tags
     # Clearance authentication
     get 'home/show'
@@ -18,6 +25,7 @@ Rails.application.routes.draw do
 
 
     resources :users, only: [:create, :show, :edit, :update] do
+        resources :reservations, only: [:index, :show]
         resource :password,
                  controller: 'clearance/passwords',
                  only: [:create, :edit, :update]

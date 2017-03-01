@@ -1,3 +1,13 @@
 <h1>Book ady</h1>
 
-<%=  render "reservations/form" %>
+<%= form_for [@listing, @reservation] do |f| %>
+  <%= f.label :rooms %>
+  <%= f.number_field :rooms %>
+  <%= f.label :no_of_guests %>
+  <%= f.number_field :no_of_guests %>
+  <%= f.label :check_in %>
+  <%= f.date_field :check_in %>
+  <%= f.label :check_out %>
+  <%= f.date_field :check_out %>
+<%= f.submit "Reserve" %>
+<% end %>

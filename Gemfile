@@ -43,6 +43,8 @@ gem 'mini_magick'
 gem 'awesome_print'
 # Fog gem for Cloud Image Storage
 gem 'fog-aws'
+# Brain tree from paypal
+gem 'braintree'
 
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'turbolinks', '~> 5'

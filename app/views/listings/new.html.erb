@@ -1,5 +1,11 @@
 <%= form_for @listing, :html => { :multipart => true } do |f| %>
 <%= render partial: '/listings/form', locals: {f: f} %>
+Amenities you can add:<br>
+<% hidden_field_tag "listings[tag_ids][]", nil %>
+<% Tag.all.each do |t| %>
+<%= check_box_tag "listings[tag_ids][]", t.id, @listing.tag_ids.include?(t.id), id: dom_id(t) %>
+<%= label_tag dom_id(t), t.name %><br>
+<% end %>
 <% end %>
 
 <div class="newlist-container">
@@ -18,12 +24,7 @@
         </div>
         </div>
         <br>
-        Amenities you can add:<br>
-    <% hidden_field_tag "listings[tag_ids][]", nil %>
-    <% Tag.all.each do |t| %>
-      <%= check_box_tag "listings[tag_ids][]", t.id, @listing.tag_ids.include?(t.id), id: dom_id(t) %>
-      <%= label_tag dom_id(t), t.name %><br>
-    <% end %>
+
     </div>
     <% end %>
   </div>

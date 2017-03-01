@@ -5,10 +5,17 @@ class ReservationsController < ApplicationController
   end
 
   def create
-    listing = Listing.find_by(params[:id])
-    @reservation = Reservation.new
-    @reservation.user_id = current_user.id
-    @reservation.listing_id
+    @listing = Listing.find(params[:listing_id])
+    @reservation = current_user.reservations.new(reservation_params)
+    @reservation.listing_id = @listing.id
+    if @reservation.save
+      flash[:success] = "Successfully made reservation"
+      redirect_to current_user
+    else
+      # @errors = @reservation.errors.full_messages
+      flash[:danger] = "Failed"
+      render "listings/show"
+    end
   end
 
 
@@ -17,7 +24,8 @@ class ReservationsController < ApplicationController
   end
 
   def new
-    @reservation = Reservation.new
+    @reservation = current_user.reservations.new
+    @listing = Listing.find(params[:listing_id])
   end
 
   def update
@@ -30,7 +38,7 @@ class ReservationsController < ApplicationController
 
 private
   def reservation_params
-    params.require(:reservations).permit(:rooms,:no_of_guests, :check_in, :check_out)
+    params.require(:reservation).permit(:rooms,:no_of_guests, :check_in, :check_out)
   end
 
 end
