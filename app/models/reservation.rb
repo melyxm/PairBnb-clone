@@ -7,7 +7,9 @@ class Reservation < ApplicationRecord
   validate :check_no_of_guests
 
   def check_overlapping_dates
-    return errors.add(:overlapping_dates, "Must input check in and check out date") if check_in.nil? || check_out.nil?
+    if check_in.nil? || check_out.nil?
+      return errors.add(:overlapping_dates, "Must input check in and check out date")
+    end
     # compare this new bookings with other bookings
     listing.reservations.each do |old_reservation|
       if overlap?(self, old_reservation)
@@ -21,9 +23,15 @@ class Reservation < ApplicationRecord
   end
 
   def check_no_of_guests
-    return errors.add(:no_of_guests, "Must input number of guess") if no_of_guests.nil?
+    return errors.add(:no_of_guests, "Must input number of guess")if no_of_guests.nil?
     max_guests = listing.no_of_guests
     return if no_of_guests < max_guests
     errors.add(:no_of_guests, "Max guest no exceeded")
+  end
+
+  def total_price
+    price = self.listing.price
+    num_dates = (check_in..check_out).to_a.length
+    price * num_dates
   end
 end

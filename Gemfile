@@ -45,6 +45,8 @@ gem 'awesome_print'
 gem 'fog-aws'
 # Brain tree from paypal
 gem 'braintree'
+# Sidekiq
+gem 'sidekiq'
 
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'turbolinks', '~> 5'

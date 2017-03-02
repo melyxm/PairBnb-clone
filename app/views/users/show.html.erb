@@ -7,7 +7,7 @@
 </div>
 
 <div class="profile-container">
-  <div class="container" style="border: 1px solid #ccc;">
+  <div class="container">
     <div class="img-card">
       <%= image_for(@user) %>
         <div class="profile-content">
@@ -16,11 +16,28 @@
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam libero quae veniam. Natus maxime explicabo praesentium, asperiores deleniti nostrum dolore. Nesciunt suscipit odio, doloremque incidunt consectetur reiciendis obcaecati. Incidunt, rem?</p>
         </div>
     </div>
+    <div class="table-book">
+      <table class="table table-hover">
+        <tr>
+          <th>Listing Title</th>
+          <th>Rooms</th>
+          <th>No. of Guests</th>
+          <th>Check In</th>
+          <th>Check Out</th>
+          <th>Total price</th>
+          <th>Status</th>
+        </tr>
+        <% @user.reservations.each do |reservation| %>
+        <tr>
+          <td><%= link_to reservation.listing.title, reservation.listing %></td>
+          <td style="text-align: center;"><%= reservation.rooms %></td>
+          <td style="text-align: center;"><%= reservation.no_of_guests %></td>
+          <td><%= reservation.check_in.strftime('%d %B %y') %></td>
+          <td><%= reservation.check_out.strftime('%d %B %y') %></td>
+          <td style="text-align: center;"><%= reservation.total_price %></td>
+          <td><%= link_to "Cancel Reserve", reservation, method: :delete %></td>
+        </tr>
+      <%end%>
+      </table>
     </div>
-
-<% @user.reservations.each do |reservation| %>
-<%=reservation.listing.user.email%>
-<%=reservation.listing.about%>
-<%=reservation.check_in%>
-<%=reservation.check_out%>
-<%end%>
+    </div>

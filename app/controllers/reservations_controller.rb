@@ -15,6 +15,8 @@ class ReservationsController < ApplicationController
       # @errors = @reservation.errors.full_messages
       flash[:danger] = "Failed"
       render "listings/show"
+      p @reservation.listing_id
+      p @reservation
     end
   end
 
@@ -33,7 +35,9 @@ class ReservationsController < ApplicationController
   end
 
   def destroy
-
+    @reservation = Reservation.find(params[:id])
+    @reservation.destroy
+    redirect_to @reservation.user
   end
 
 private
