@@ -1,6 +1,6 @@
 <h1>Book ady</h1>
 
-<%= form_for [@listing, @reservation] do |f| %>
+<%= form_for @reservation, url: listing_reservations_path(@listing) do |f| %>
   <%= f.label :rooms %>
   <%= f.number_field :rooms %>
   <%= f.label :no_of_guests %>

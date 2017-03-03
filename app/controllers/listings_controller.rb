@@ -1,6 +1,6 @@
 class ListingsController < ApplicationController
   def index
-    @listings = Listing.all.order('created_at ASC').paginate(page: params[:page], per_page: 10)
+      @listings = Listing.all.order('created_at ASC').paginate(page: params[:page], per_page: 9)
   end
 
   def new

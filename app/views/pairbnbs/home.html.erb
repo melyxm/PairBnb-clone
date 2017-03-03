@@ -8,22 +8,26 @@
   <div class="wrapper-searchForm">
     <div class="searchForm-list lead searchForm-text" style="margin-left: 28px;">
       Where<br>
-      <input type="text" placeholder="Destination, city, address" size="28px">
-
+      <%= form_for listings_path, method: :get do %>
+      <p>
+        <%= text_field_tag :query, params[:query], placeholder: "Look for a place" %>
+        <%= submit_tag "Search", title: nil, about: nil %>
+      </p>
+      <% end %>
     </div>
-    <div class="searchForm-list lead searchForm-text">
-      When<br>
+    <!-- <div class="searchForm-list lead searchForm-text">
+      When<br> -->
       <%# form_for @reservation do |f| %>
       <%# f.text_field :check_in, class: "searchCalender", placeholder: "Check in", size: "28px" %><br/>
       <%# f.submit class: "reservation-btn" %>
       <%# end %>
   </div>
-    <div class="searchForm-list lead searchForm-text">
-      Guest<br>
-      <input type="text" placeholder="Destination, city, address" size="28px">
-    </div>
+    <!-- <div class="searchForm-list lead searchForm-text"> -->
+      <!-- Guest<br> -->
+      <!-- <input type="text" placeholder="Destination, city, address" size="28px"> -->
+    <!-- </div> -->
   </div>
-</div>
+<!-- </div> -->
 
 <!-- listing-content -->
 <div class="container">

@@ -23,10 +23,9 @@ class Reservation < ApplicationRecord
   end
 
   def check_no_of_guests
-    return errors.add(:no_of_guests, "Must input number of guess")if no_of_guests.nil?
-    max_guests = listing.no_of_guests
-    return if no_of_guests < max_guests
-    errors.add(:no_of_guests, "Max guest no exceeded")
+    if self.no_of_guests > listing.no_of_guests
+      errors.add(:check_no_of_guests, "Max guest no exceeded")
+    end
   end
 
   def total_price
