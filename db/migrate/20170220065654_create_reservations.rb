@@ -6,6 +6,7 @@ class CreateReservations < ActiveRecord::Migration[5.0]
       t.integer :check_in
       t.integer :check_out
       t.integer :no_of_guests
+
       t.timestamps
     end
   end

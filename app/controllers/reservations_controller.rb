@@ -11,7 +11,8 @@ class ReservationsController < ApplicationController
     if @reservation.save
       ReservationJob.perform_later(@reservation, @listing)
       flash[:success] = "Successfully made reservation"
-      redirect_to payment_new_path(@reservation.id)
+      redirect_to root_path 
+      # payment_new_path(@reservation.id)
     else
       # @errors = @reservation.errors.full_messages
       @errors = @reservation.errors.full_messages

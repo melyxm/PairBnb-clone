@@ -1,36 +1,22 @@
 <div class="jumbotron">
+  <%= video_tag("video2.mp4", id: "video-background", autoplay: true, loop: true, muted: true)%>
     <div class="container">
-        <h1 class-"lead" style="font-weight: 300; font-size: 50px;">PairBnb Book unique experiences <br>and homes in 191+ countries</h1>
+      <h1 style="margin-top: 100px; color: #fff; font-weight: 300;"><strong style="color: #337ab7;">PairBnb</strong> | Book unique experiences <br>and homes in 191+ countries</h1>
     </div>
 </div>
 
 <div class="SearchForm">
-  <div class="wrapper-searchForm">
-    <div class="searchForm-list lead searchForm-text" style="margin-left: 28px;">
-      Where<br>
       <%= form_for listings_path, method: :get do %>
-      <p>
-        <%= text_field_tag :query, params[:query], placeholder: "Look for a place" %>
-        <%= submit_tag "Search", title: nil, about: nil %>
-      </p>
+      <div class="input-group">
+        <%= text_field_tag :query, params[:query], placeholder: "Look for a place", class: "form-control" %>
+        <span class="input-group-btn">
+          <%= submit_tag "Search", title: nil, about: nil, class: "btn btn-default" %>
+        </span>
+      </div>
       <% end %>
-    </div>
-    <!-- <div class="searchForm-list lead searchForm-text">
-      When<br> -->
-      <%# form_for @reservation do |f| %>
-      <%# f.text_field :check_in, class: "searchCalender", placeholder: "Check in", size: "28px" %><br/>
-      <%# f.submit class: "reservation-btn" %>
-      <%# end %>
   </div>
-    <!-- <div class="searchForm-list lead searchForm-text"> -->
-      <!-- Guest<br> -->
-      <!-- <input type="text" placeholder="Destination, city, address" size="28px"> -->
-    <!-- </div> -->
-  </div>
-<!-- </div> -->
 
-<!-- listing-content -->
-<div class="container">
+<div class="container listhome">
   <div class="row">
     <% @listings.each do |listing| %>
     <div class="col-md-4">

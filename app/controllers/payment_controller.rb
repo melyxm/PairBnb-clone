@@ -5,10 +5,12 @@ class PaymentController < ApplicationController
   end
 
   def checkout
-    nonce_from_the_client = params[:checkout_form][:payment_method_nonce]
+    @reservation = Reservation.find(params[:reservation_id])
+    a = (@reservation.listing.price) * (@reservation.check_out - @reservation.check_in).to_i
 
+    nonce_from_the_client = params[:checkout_form][:payment_method_nonce]
     result = Braintree::Transaction.sale(
-      amount: '10.00', # this is currently hardcoded
+      amount: a, # this is currently hardcoded
       payment_method_nonce: nonce_from_the_client,
       options: {
       submit_for_settlement: true

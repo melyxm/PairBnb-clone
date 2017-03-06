@@ -8,8 +8,21 @@ body {
 }
 
 .jumbotron {
-  height: 300px;
+  position: relative;
+  z-index: -1000;
 }
+
+#video-background {
+  position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    overflow: hidden;
+    z-index:-1000;
+    width:100%;
+}
+
 
 // Navbar
 
@@ -29,13 +42,14 @@ body {
 // SearchForm Field
 
 .SearchForm {
-  width: 801px;
-  height: 120px;
   background-color: #fff;
-  margin: 0 auto;
+  width: 701px;
+  margin-top: 80px;
+  margin-left: auto;
+  margin-right: auto;
   position: relative;
-  bottom: 4em;
-  border-radius:5px;
+  bottom: 7em;
+  border-radius: 5px;
   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
 }
 
@@ -55,6 +69,16 @@ body {
 .searchForm-text {
   font-size: 17.2px;
 }
+
+.input-group .form-control {
+  height: 47px;
+}
+
+.input-group-btn .btn {
+  height: 47px;
+}
+
+
 
 // Form-login
 
@@ -126,6 +150,7 @@ body {
 
 // Listing
 .card-img {
+  background: #fff;
   box-sizing: border-box;
   background-clip: padding-box;
   border-radius: 2px;
@@ -168,6 +193,12 @@ body {
 }
 
 // listing
+.listhome {
+  margin-top: 20px;
+  overflow: hidden;
+}
+
+
 .listing-form {
   width: 1000px;
   margin-top: 50px;
@@ -208,8 +239,10 @@ body {
 
 .profile-content {
   width:300px;
+  margin-top: 5em;
   margin-left: 30px;
   margin-right: auto;
+  z-index: 1000;  
 }
 
 .profile-content p {
@@ -218,7 +251,7 @@ body {
 
 .img-card {
   position: relative;
-  bottom: 20em;
+  bottom: 25em;
   width: 300px;
   margin-left: 40px;
   margin-right: auto;

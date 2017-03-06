@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
-    get 'payment/new'
 
-    post 'payment/checkout'
 
     get 'name/sessions'
 
@@ -12,9 +10,20 @@ Rails.application.routes.draw do
     get 'profiles', to: 'profiles#index'
 
     # refer to controller # method name
+    resources :reservations do
+      #TODO nest payment to get ../listings/reservation/:id/payment/new
+      get 'payment/new'
+      post 'payment/checkout'
+    end
+    #remove it doesnt work#
+
+
+
+    #######
 
     resources :listings do
       resources :reservations, only: [:create, :new]
+
     end
     resources :reservations, only: [:destroy]
     resources :tags
