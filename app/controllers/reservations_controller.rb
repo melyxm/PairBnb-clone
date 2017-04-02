@@ -11,7 +11,7 @@ class ReservationsController < ApplicationController
     if @reservation.save
       ReservationJob.perform_later(@reservation, @listing)
       flash[:success] = "Successfully made reservation"
-      redirect_to root_path 
+      redirect_to root_path
       # payment_new_path(@reservation.id)
     else
       # @errors = @reservation.errors.full_messages
@@ -36,8 +36,11 @@ class ReservationsController < ApplicationController
 
   def destroy
     @reservation = Reservation.find(params[:id])
-    @reservation.destroy
-    redirect_to @reservation.user
+      @reservation.destroy
+    respond_to do |format|
+      format.html { redirect_to @reservation.user }
+      format.js { @reservation_id = params[:id] }
+    end
   end
 
 private
